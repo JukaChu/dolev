@@ -94,84 +94,64 @@ $size: 23px;
 
 @mixin subtitle {
   font-style: normal;
-  font-weight: 300;
+  font-weight: bold;
   font-size: vw(57px);
   line-height: 1.14;
   color: $main-color;
 }
 
 
-.btn, body #sb_instagram .sbi_follow_btn a  {
+.btn, body #sb_instagram .sbi_follow_btn a {
   outline: none;
   appearance: none;
   margin: 0;
   cursor: pointer;
   @include flexCenter;
-  @include defaultFont;
-  font-weight: 300;
-  border: 1px solid $black;
-  background: rgba(255, 255, 255, 0);
-  transition: all 0.3s ease-in-out;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 1;
+  border: none;
+  border-radius: 26px;
+  color: #fff;
+  background: $main-color;
+  transition: all 0.3s ease-out;
   padding: vw(11px) vw(20px);
-  min-width: vw(187px);
-  box-shadow: 0 0 0 rgba(50, 50, 50, 0.8);
+  width: 100%;
+  height: 53px;
+  position: relative;
+  gap: 6px;
+
+  &::before {
+    width: 100%;
+    height: 100%;
+    border-radius: 26px;
+    background: linear-gradient(to right, #a87a57 0%, #ac7f5b 17.15%, #dfa176 33.46%, #af805e 63.58%, #c8a37b 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    z-index: -1;
+    display: inline-block;
+    content: '';
+    transition: all 0.3s ease-out;
+  }
+
+  &::after {
+    content: '>>';
+  }
 
   &:hover {
-    box-shadow: 4px 4px 0 0 rgba(50, 50, 50, 0.8);
-    transform: translate(-4px, -4px);
-  }
-
-  &.btn--trans, a {
-    color: $black !important;
-    background: rgba(255, 255, 255, 0) !important;
-    svg {
-      display: none;
-    }
-
-
-    &:hover {
-      background: $black;
-      color: #fff;
-      //border-color: $white;
-    }
-  }
-
-  &.btn--white {
-    color: #fff;
-    border-color: #fff;
     background: rgba(255, 255, 255, 0);
-
-
-    &:hover {
-      border-color: #E1E1E1;
-      box-shadow: 4px 4px 0 0 rgba(255, 255, 255, 0.6);
-      background: #E1E1E1;
-      color: $black;
-    }
+    font-weight: bold;
   }
 
-  &.btn--black {
-    min-width: vw(280px);
-    height: vw(60px);
-    font-size: vw(24px);
-    color: #fff;
-    border-color: $black;
-    background: $black;
-    border-radius: vw(8px);
 
-
-    &:hover {
-      border-color: #E1E1E1;
-      box-shadow: 4px 4px 0 0 rgba(50, 50, 50, 0.5);
-      background: #E1E1E1;
-      color: $black;
-    }
-  }
 }
 
 body #sb_instagram .sbi_follow_btn a {
   color: $black !important;
   background: rgba(255, 255, 255, 0) !important;
+
   svg {
     display: none;
     margin-left: 7px;
