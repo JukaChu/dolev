@@ -37,7 +37,8 @@ function startServicesSlider() {
     } else {
         servicesSlider.forEach((sld) => {
             let sldCont = sld.querySelector('.swiper');
-
+            let sldNext = sld.querySelector('.slider-btn--next');
+            let sldPrev = sld.querySelector('.slider-btn--prev');
             let pagin = sld.querySelector('.dots');
 
             const swiper2 = new Swiper(sldCont, {
@@ -56,12 +57,11 @@ function startServicesSlider() {
                 touchStartPreventDefault: true,
                 touchStartForcePreventDefault: true,
                 touchReleaseOnEdges: true,
-
+                slideToClickedSlide: true,
                 resistance: true,
                 resistanceRatio: 0.3,
                 cssMode: false,
 
-                navigation: false,
                 autoplay: false,
                 spaceBetween: 22,
                 pagination: {
@@ -74,13 +74,16 @@ function startServicesSlider() {
                     currentClass: 'current',
                     spaceBetween: 2,
                 },
-                initialSlide: 2,
-
+                initialSlide: 3,
+                navigation: {
+                    nextEl: sldNext,
+                    prevEl: sldPrev,
+                },
                 breakpoints: {
                     768: {
                         slidesPerView: 3,
                         spaceBetween: 0,
-                        initialSlide:2,
+                        initialSlide:3,
                     }
                 }
 
@@ -303,3 +306,59 @@ function sortSelectClick() {
 }
 
 sortSelectClick();
+
+
+let tabBtn = [...document.querySelectorAll('.tab-btn')];
+let selectTab = [...document.querySelectorAll('.select-tab .list li')];
+
+function changeTab() {
+    if (!tabBtn.length) {
+
+    } else {
+        tabBtn.forEach((btn, k) => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                if (btn.classList.contains('active')) {
+
+                } else {
+                    tabBtn.forEach((btn2) => {
+                        btn2.classList.remove('active');
+                    });
+                    btn.classList.add('active');
+                    [...btn.closest('.tabs-owner').querySelectorAll('.item-tab')].forEach((tab, m) => {
+                        if (m === k) {
+                            tab.classList.add('active');
+
+                            if (window.innerWidth < 768) {
+                                setTimeout(() => {
+                                    // $([document.documentElement, document.body]).animate({
+                                    //     scrollTop: $(btn).offset().top
+                                    // }, 400);
+                                }, 310);
+                            }
+                        } else {
+                            tab.classList.remove('active');
+
+                        }
+                    });
+
+                    if (selectTab.length) {
+                        selectTab[k].click();
+                    }
+                }
+            })
+        });
+
+        if (selectTab.length) {
+            selectTab.forEach((btn, k) => {
+                btn.addEventListener('click', (e) => {
+
+                    tabBtn[k].click();
+                })
+            });
+        }
+    }
+}
+
+changeTab();

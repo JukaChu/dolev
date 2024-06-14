@@ -3,13 +3,13 @@
 }
 
 .footer {
-  width: 398px;
+  width: vw(398px);
   position: fixed;
-  right: 140px;
+  right: vw(140px);
   top: 0;
   height: 100vh;
   background: #fff;
-  box-shadow: 0px -3px 50px #c784e1;
+  box-shadow: 0px -3px vw(50px) #c784e1;
   z-index: 10;
 
   &::after {
@@ -19,31 +19,32 @@
     left: 0;
     display: inline-block;
     content: '';
-    background: url("../../img/footer-bg.jpg") no-repeat center / 100%;
+    background: url("../../img/footer-bg.jpg") no-repeat center / cover;
     position: absolute;
 
   }
 
   .logo {
-    width: 202px;
-    height: 244px;
+    width: vw(202px);
+    height: vw(244px);
     display: flex;
-    margin-bottom: 44px;
+    margin-bottom: vw(44px);
 
     img {
       width: 100%;
       height: 100%;
     }
   }
+
   .form {
     width: 100%;
-    margin-top: 43px;
-    padding-left: 43px;
-    padding-right: 43px;
+    margin-top: vw(43px);
+    padding-left: vw(43px);
+    padding-right: vw(43px);
   }
 
   &-container {
-    padding-top: 22px;
+    padding-top: vw(22px);
     width: 100%;
     height: 100%;
     overflow-y: auto;
@@ -58,8 +59,8 @@
     > p {
       @include defaultFont;
       text-align: center;
-      padding-left: 12px;
-      padding-right: 12px;
+      padding-left: vw(12px);
+      padding-right: vw(12px);
 
       strong {
         font-weight: bold;
@@ -67,3 +68,117 @@
     }
   }
 }
+
+
+.modal-window {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+
+  .backplate {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.76);
+
+    &::before, &::after {
+      width: vw(554px);
+      height: vw(560px);
+      display: inline-block;
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background: url("../../img/procedure-before.svg") no-repeat center / 100%;
+    }
+    &::after {
+      top: auto;
+      left: auto;
+      right: 0;
+      bottom: 0;
+      transform: rotate(180deg);
+    }
+  }
+
+  &.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.modal-container {
+  width: 100%;
+  max-width: vw(1600px);
+  position: relative;
+  z-index: 2;
+  background: url("../../img/main-after.svg") no-repeat center / 100%, #fff;
+  max-height: 100%;
+  overflow-y: auto;
+  border: 1px solid rgba(199, 132, 225, 0.51);
+  box-shadow: 0px 3px 50px rgba(193, 94, 232, 0.51);
+
+  .cls {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: vw(10px);
+    right: vw(10px);
+    padding: vw(5px);
+    cursor: pointer;
+    z-index: 5;
+
+    span {
+      width: 100%;
+      height: 2px;
+      background: $black;
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+
+      &:nth-child(2) {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+
+    }
+  }
+}
+
+.modal-wrapper {
+  width: 100%;
+  height: 0;
+  position: relative;
+  padding-top: 53%;
+
+  .video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: vw(70px);
+
+    video, iframe {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+//done px
