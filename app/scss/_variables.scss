@@ -1,0 +1,187 @@
+@function vw($px-vw, $base-vw: 1920px) {
+  @return ($px-vw * 100vw) / $base-vw
+}
+
+$main-font: "Open Sans", sans-serif;
+$second-font: "Inter", sans-serif;
+
+
+$main-color: #494B61;
+$purplelow: #C784E1;
+$grey: #717171;
+$border: #B18BFF;
+$white: #fff;
+$black: #001721;
+$size: 23px;
+
+@mixin flexStart {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flexCenterH {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+@mixin flexCenterV {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@mixin rtl-margin($property, $ltrproperty, $value, $value2) {
+  margin-#{$property}: $value;
+  margin-#{$ltrproperty}: $value2;
+
+  [dir=rtl] & {
+    margin-#{$ltrproperty}: $value;
+    margin-#{$property}: $value2;
+  }
+}
+
+@mixin rtl-padding($property, $ltrproperty, $value, $value2) {
+  padding-#{$property}: $value;
+  padding-#{$ltrproperty}: $value2;
+
+  [dir=rtl] & {
+    padding-#{$ltrproperty}: $value;
+    padding-#{$property}: $value2;
+  }
+}
+
+@mixin textAlign($property, $property2) {
+  text-align: $property;
+
+  [dir=rtl] & {
+    text-align: $property2;
+  }
+}
+
+//fonts
+
+@mixin defaultFont {
+  font-style: normal;
+  font-weight: normal;
+  font-size: vw($size);
+  line-height: 1.4;
+  color: $main-color;
+}
+
+@mixin textFont {
+  font-style: normal;
+  font-weight: 400;
+  font-size: vw(23px);
+  line-height: 1.39;
+  color: $main-color;
+}
+
+@mixin title {
+  font-style: normal;
+  font-weight: bold;
+  font-size: vw(91px);
+  line-height: 1.04;
+  color: $black;
+}
+
+@mixin subtitle {
+  font-style: normal;
+  font-weight: 300;
+  font-size: vw(57px);
+  line-height: 1.14;
+  color: $main-color;
+}
+
+
+.btn, body #sb_instagram .sbi_follow_btn a  {
+  outline: none;
+  appearance: none;
+  margin: 0;
+  cursor: pointer;
+  @include flexCenter;
+  @include defaultFont;
+  font-weight: 300;
+  border: 1px solid $black;
+  background: rgba(255, 255, 255, 0);
+  transition: all 0.3s ease-in-out;
+  padding: vw(11px) vw(20px);
+  min-width: vw(187px);
+  box-shadow: 0 0 0 rgba(50, 50, 50, 0.8);
+
+  &:hover {
+    box-shadow: 4px 4px 0 0 rgba(50, 50, 50, 0.8);
+    transform: translate(-4px, -4px);
+  }
+
+  &.btn--trans, a {
+    color: $black !important;
+    background: rgba(255, 255, 255, 0) !important;
+    svg {
+      display: none;
+    }
+
+
+    &:hover {
+      background: $black;
+      color: #fff;
+      //border-color: $white;
+    }
+  }
+
+  &.btn--white {
+    color: #fff;
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0);
+
+
+    &:hover {
+      border-color: #E1E1E1;
+      box-shadow: 4px 4px 0 0 rgba(255, 255, 255, 0.6);
+      background: #E1E1E1;
+      color: $black;
+    }
+  }
+
+  &.btn--black {
+    min-width: vw(280px);
+    height: vw(60px);
+    font-size: vw(24px);
+    color: #fff;
+    border-color: $black;
+    background: $black;
+    border-radius: vw(8px);
+
+
+    &:hover {
+      border-color: #E1E1E1;
+      box-shadow: 4px 4px 0 0 rgba(50, 50, 50, 0.5);
+      background: #E1E1E1;
+      color: $black;
+    }
+  }
+}
+
+body #sb_instagram .sbi_follow_btn a {
+  color: $black !important;
+  background: rgba(255, 255, 255, 0) !important;
+  svg {
+    display: none;
+    margin-left: 7px;
+    margin-right: 0;
+  }
+
+
+  &:hover {
+    background: $black !important;
+    color: #fff !important;
+    //border-color: $white;
+  }
+}
