@@ -29,7 +29,7 @@ var header = document.querySelector('.header');
 //news slider
 
 
-let servicesSlider = [...document.querySelectorAll('.categories-slider')];
+let servicesSlider = [...document.querySelectorAll('.work-slider')];
 
 function startServicesSlider() {
     if (!servicesSlider.length) {
@@ -42,11 +42,12 @@ function startServicesSlider() {
 
             const swiper2 = new Swiper(sldCont, {
                 // Optional parameters
-                loop: false,
+                loop: true,
                 grabCursor: true,
                 slidesPerView: 1,
                 slidesPerGroup: 1,
-                speed: 600,
+                speed: 300,
+                centeredSlides: true,
 
                 followFinger: true,
                 allowTouchMove: true,
@@ -58,11 +59,11 @@ function startServicesSlider() {
 
                 resistance: true,
                 resistanceRatio: 0.3,
-                cssMode: true,
+                cssMode: false,
 
                 navigation: false,
                 autoplay: false,
-                spaceBetween: 8,
+                spaceBetween: 22,
                 pagination: {
                     el: pagin,
                     type: 'bullets',
@@ -73,10 +74,13 @@ function startServicesSlider() {
                     currentClass: 'current',
                     spaceBetween: 2,
                 },
+                initialSlide: 2,
+
                 breakpoints: {
                     768: {
                         slidesPerView: 3,
-                        spaceBetween: 8,
+                        spaceBetween: 0,
+                        initialSlide:2,
                     }
                 }
 
