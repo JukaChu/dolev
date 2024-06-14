@@ -307,6 +307,18 @@ body {
       justify-content: center;
       height: 49px;
       z-index: 2;
+      &::after {
+        width: 20px;
+        height: 13px;
+        display: inline-block;
+        content: '';
+        background: url("../img/arrow.svg") no-repeat center / 100%;
+        left: 23px;
+        top: 50%;
+        transform: translate(0, -50%);
+        transition: all 0.3s ease-out;
+        position: absolute;
+      }
     }
 
     ul li {
@@ -315,6 +327,9 @@ body {
       line-height: 1;
       text-align: center;
       color: $main-color;
+      &.disabled {
+        display: none !important;
+      }
     }
 
     ul {
@@ -410,11 +425,16 @@ body {
 
       span {
         border-radius: 28px 28px 0 0;
+        &::after {
+          transform: translate(0, -50%) rotate(180deg);
+        }
       }
 
       ul {
         border-radius: 29px;
         max-height: 260px;
+        padding-top: 45px;
+        padding-bottom: 9px;
 
         &::before {
           border-radius: 30px;
