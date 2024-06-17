@@ -204,9 +204,11 @@ input[type=number] {
 
 
 
-@import "./details/header";
-@import "./details/footer";
+
 @import "./details/page404";
 @import "typograph";
 @import "desktop";
 @import "media";
+
+@import "./details/header";
+@import "./details/footer";

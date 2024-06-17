@@ -105,6 +105,7 @@
       left: 0;
       background: url("../../img/procedure-before.svg") no-repeat center / 100%;
     }
+
     &::after {
       top: auto;
       left: auto;
@@ -181,9 +182,11 @@
   }
 }
 
-//done px
 
 
+@function vw($px-vw, $base-vw: 360px) {
+  @return ($px-vw * 100vw) / $base-vw
+}
 @media screen and (max-width: 767px) {
   .footer {
     position: relative;
@@ -192,5 +195,128 @@
     bottom: auto;
     left: auto;
     width: 100%;
+    height: auto;
+    background: #fff;
+    box-shadow: 0px -3px 50px #c784e1;
+
+    .form {
+      padding: 0 vw(24px);
+      margin-top: vw(36px);
+    }
   }
+
+  .input-wrap {
+    margin-bottom: vw(17px);
+  }
+  .input-wrap input {
+    height: vw(49px);
+    font-size: vw(20px);
+
+    &::placeholder {
+      font-size: vw(20px);
+    }
+  }
+  .filter-select .nice-select span::after {
+    width: vw(20px);
+    height: vw(14px);
+    left: vw(23px);
+  }
+  .filter-select .nice-select span {
+    font-size: vw(20px);
+    height: vw(49px);
+    z-index: 10;
+  }
+  .filter-select .nice-select ul {
+    //49px
+    padding-top: calc(13.6111vw + 4px);
+
+    z-index: 9;
+    background: #f1f1f1;
+
+    li {
+      height: vw(29px);
+      font-size: vw(20px);
+    }
+  }
+  .filter-select .nice-select.open ul {
+    padding-top: vw(46px);
+    max-height: vw(300px);
+    padding-bottom: vw(10px);
+
+    li {
+      &:last-child {
+        //padding-bottom: 10px;
+        //height: 39px;
+      }
+    }
+  }
+  .footer-container {
+    padding: vw(43px) 0 vw(107px);
+    //padding: 43px 0 1007px;
+
+    p {
+      font-size: vw(23px);
+      padding: 0 vw(10px);
+
+    }
+
+    .logo {
+      display: none;
+    }
+  }
+  .btn {
+    height: vw(53px);
+    font-size: vw(20px);
+    gap: vw(6px);
+  }
+  .checkbox-field {
+    margin-top: vw(21px);
+  }
+  .checkbox-field .wpcf7-list-item-label {
+    gap: vw(10px);
+    font-size: vw(20px);
+
+    &::before {
+      width: vw(34px);
+      height: vw(34px);
+    }
+
+    &::after {
+      width: vw(21px);
+      height: vw(15px);
+    }
+  }
+  .filter-select {
+    margin-bottom: vw(48px);
+  }
+
+  .footer::after {
+    background: url("../../img/footer-bg-mob.jpg") no-repeat center top / 100% 100%;
+  }
+
+  .modal-container {
+    max-width: 100%;
+  }
+  .modal-wrapper {
+    padding-top: 120%;
+  }
+  .modal-container .cls {
+    width: vw(20px);
+    height: vw(20px);
+    top: vw(10px);
+    right: vw(10px);
+  }
+  .modal-wrapper .video-container {
+    padding: vw(40px) vw(10px) vw(10px);
+  }
+
+  .modal-window {
+    .backplate {
+      &::before, &::after {
+        width: vw(194px);
+        height: vw(200px);
+      }
+    }
+  }
+  //done px
 }

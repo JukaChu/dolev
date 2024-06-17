@@ -99,6 +99,70 @@ function startServicesSlider() {
 startServicesSlider();
 
 
+
+let proceduresSlider = [...document.querySelectorAll('.procedure-slider')];
+
+function startProcedureSlider() {
+    if (!proceduresSlider.length) {
+
+    } else {
+        proceduresSlider.forEach((sld) => {
+            let sldCont = sld.querySelector('.swiper');
+            let sldNext = sld.querySelector('.slider-btn--next');
+            let sldPrev = sld.querySelector('.slider-btn--prev');
+            let pagin = sld.querySelector('.dots');
+
+            const swiper2 = new Swiper(sldCont, {
+                // Optional parameters
+                loop: true,
+                grabCursor: true,
+                slidesPerView: 1,
+                slidesPerGroup: 1,
+                speed: 300,
+                centeredSlides: true,
+
+                followFinger: true,
+                allowTouchMove: true,
+                threshold: true,
+                touchMoveStopPropagation: true,
+                touchStartPreventDefault: true,
+                touchStartForcePreventDefault: true,
+                touchReleaseOnEdges: true,
+                slideToClickedSlide: true,
+                resistance: true,
+                resistanceRatio: 0.3,
+                cssMode: false,
+
+                autoplay: false,
+                spaceBetween: 22,
+                pagination: {
+                    el: pagin,
+                    type: 'bullets',
+                    bulletActiveClass: 'active',
+                    bulletClass: 'single-dot',
+                    bulletElement: 'div',
+                    clickable: true,
+                    currentClass: 'current',
+                    spaceBetween: 2,
+                },
+                navigation: {
+                    nextEl: sldNext,
+                    prevEl: sldPrev,
+                },
+
+
+
+            });
+
+        })
+
+
+    }
+}
+
+startProcedureSlider();
+
+
 //swipers
 
 
@@ -273,6 +337,26 @@ $('body').on('click', '.btn-to', function (e) {
     $([document.documentElement, document.body]).animate({
         scrollTop: $(lnk).offset().top
     }, 600);
+
+});
+
+$('body').on('click', '.btn--contacts', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $('.footer').offset().top
+    }, 600);
+
+});
+
+$('body').on('click', '.btn-plus', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    let lnk = this.closest('.about-text');
+
+    lnk.classList.toggle('open');
 
 });
 

@@ -1,3 +1,39 @@
-@function vw($px-vw, $base-vw: 1920px) {
+@function vw($px-vw, $base-vw: 360px) {
   @return ($px-vw * 100vw) / $base-vw
+}
+
+
+@media screen and (max-width: 767px) {
+  .header {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-radius: vw(30px) vw(30px) 0 0;
+    background: url("../../img/header-bg.jpg") no-repeat center / 100% 100%;
+    z-index: 100;
+  }
+  .header-cont {
+    width: 100%;
+    padding: vw(11px) vw(21px) vw(11px) vw(19px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .btn {
+      width: auto;
+      padding: vw(5px) vw(38px);
+    }
+
+    .logo {
+      width: vw(87px);
+      height: auto;
+      display: flex;
+
+      a, img {
+        width: 100%;
+        height: auto;
+        display: flex;
+      }
+    }
+  }
 }
