@@ -182,3 +182,15 @@
 }
 
 //done px
+
+
+@media screen and (max-width: 767px) {
+  .footer {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+  }
+}
