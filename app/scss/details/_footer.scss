@@ -19,7 +19,7 @@
     left: 0;
     display: inline-block;
     content: '';
-    background: url("../../img/footer-bg.jpg") no-repeat center / cover;
+    background: url("../img/footer-bg.jpg") no-repeat center / cover;
     position: absolute;
 
   }
@@ -103,7 +103,7 @@
       z-index: 1;
       top: 0;
       left: 0;
-      background: url("../../img/procedure-before.svg") no-repeat center / 100%;
+      background: url("../img/procedure-before.svg") no-repeat center / 100%;
     }
 
     &::after {
@@ -126,7 +126,7 @@
   max-width: vw(1600px);
   position: relative;
   z-index: 2;
-  background: url("../../img/main-after.svg") no-repeat center / 100%, #fff;
+  background: url("../img/main-after.svg") no-repeat center / 100%, #fff;
   max-height: 100%;
   overflow-y: auto;
   border: 1px solid rgba(199, 132, 225, 0.51);
@@ -291,7 +291,7 @@
   }
 
   .footer::after {
-    background: url("../../img/footer-bg-mob.jpg") no-repeat center top / 100% 100%;
+    background: url("../img/footer-bg-mob.jpg") no-repeat center top / 100% 100%;
   }
 
   .modal-container {

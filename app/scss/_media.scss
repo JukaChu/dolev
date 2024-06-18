@@ -361,9 +361,15 @@ $size: 14px;
     width: 100%;
     padding: vw(10px) vw(8px) vw(10px) vw(12px);
     overflow: hidden;
+    flex-direction: column;
+    display: flex;
 
     .swiper {
       overflow: visible;
+      width: 100%;
+      .swiper-wrapper{
+        width: 100%;
+      }
     }
 
     .btns {
