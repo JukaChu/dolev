@@ -381,6 +381,7 @@ function sortSelectClick() {
                 suggestOpt.selected = 'selected';
                 suggestOpt.setAttribute('selected', 'selected');
                 suggestOpt.click();
+                btn.closest('.nice-select').querySelector('.current').click();
                 // console.log(btn.closest('.filter-select').querySelector('select'));
                 // console.log(suggestOpt);
                 // $('select.sort-select').niceSelect();
