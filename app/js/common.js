@@ -43,7 +43,7 @@ function startServicesSlider() {
 
             const swiper2 = new Swiper(sldCont, {
                 // Optional parameters
-                loop: true,
+                loop: false,
                 grabCursor: true,
                 slidesPerView: 1,
                 slidesPerGroup: 1,
@@ -52,7 +52,7 @@ function startServicesSlider() {
 
                 followFinger: true,
                 allowTouchMove: true,
-                threshold: true,
+                threshold: false,
                 touchMoveStopPropagation: true,
                 touchStartPreventDefault: true,
                 touchStartForcePreventDefault: true,
@@ -74,7 +74,7 @@ function startServicesSlider() {
                     currentClass: 'current',
                     spaceBetween: 2,
                 },
-                initialSlide: 3,
+                initialSlide: 2,
                 navigation: {
                     nextEl: sldNext,
                     prevEl: sldPrev,
@@ -83,7 +83,7 @@ function startServicesSlider() {
                     768: {
                         slidesPerView: 3,
                         spaceBetween: 0,
-                        initialSlide:3,
+                        initialSlide:2,
                     }
                 }
 

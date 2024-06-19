@@ -1016,6 +1016,10 @@ body {
       transform: rotate(180deg);
     }
   }
+  &.swiper-button-disabled {
+    opacity: 0.1;
+    pointer-events: none;
+  }
 
   &:hover {
     svg {
