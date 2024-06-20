@@ -282,6 +282,7 @@
 
   .work {
     overflow: hidden;
+    z-index: 3;
 
     .btn-to {
       display: none;
@@ -421,6 +422,7 @@
     }
   }
   .procedure {
+    min-height: 0;
     &::before {
       width: vw(199px);
       height: vw(191px);
@@ -438,7 +440,7 @@
     border-radius: 500px;
     background: #fff;
     box-shadow: 0px 3px 10px #c784e1;
-    margin-bottom: vw(62px);
+    margin-bottom: vw(22px);
 
     .img {
       padding-top: 63.235294117%;
@@ -614,5 +616,22 @@
     }
   }
   //  done px
+
+  .procedure-block {
+    > p {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-weight: bold;
+      font-size:vw(20px);
+      line-height: 1;
+      text-align: center;
+      color: $purplelow;
+      margin-bottom: vw(20px);
+
+    }
+  }
 }
 
